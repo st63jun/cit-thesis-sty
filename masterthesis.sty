@@ -9,6 +9,8 @@
 %% 一行あたりの文字数
 \newcommand{\DefaultTextWidth}{\setlength{\textwidth}{33zw}}
 
+%% \subsubsectionも目次に含める
+
 \DefaultBaseLineSkip
 \DefaultHOffset
 \DefaultTextWidth
@@ -50,7 +52,7 @@
 %% 概要
 \newenvironment{Abstract}{\setcounter{page}{1}\section*{概要}}{\newpage}
 %% 目次
-\newcommand{\TableOfContents}{\tableofcontents\newpage}
+\newcommand{\TableOfContents}{\setcounter{tocdepth}{3}\tableofcontents\newpage}
 
 %% セクションごとに改ページするようにする
 \if@twocolumn
