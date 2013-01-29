@@ -1,0 +1,212 @@
+% \CheckSum{145}
+% \iffalse
+%<package>\NeedsTeXFormat{pLaTeX2e}
+%<package>\ProvidesPackage{masterthesis}
+%<package>  [2013/01/29 v1.0 Style file for thesis]
+% \changes{v1.0}{2013/01/29}{Initial release.}
+%<*driver>
+\documentclass{jltxdoc}
+\setcounter{StandardModuleDepth}{1}
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{\jobname.sty}
+%
+% \title{千葉工大生向け修論スタイルファイル}
+% \author{齊藤 潤}
+% \maketitle
+%
+% \StopEventually{}
+%
+% \section{概要}
+% 公式でスタイルファイルを配布してくれないので自作しました．たぶん電情
+% 向け．自由に使って構いません．
+%
+% LaTeXとかよくわからないのでツッコミくれると嬉しいです．
+%
+% \subsection{使い方}
+% Template.texを参照してください．
+%
+% \subsection{連絡先}
+% Twitter: @ST63Jun\_ (https://twitter.com/ST63Jun\_)
+% \section{各マクロの説明}
+%
+% \subsection{ページ設定}
+%
+% \begin{macro}{\Front}
+% 表紙，概要，目次等のために，ページ番号をローマ数字に変更します．
+%    \begin{macrocode}
+\newcommand{\Front}{\pagenumbering{roman}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Main}
+% 本文のために，ページ番号をアラビア数字に変更します．
+%    \begin{macrocode}
+\newcommand{\Main}{\pagenumbering{arabic}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\DefaultBaseLineSkip}
+% 行送りをデフォルト値に設定します．
+% \iffalse
+%<*package>
+% \fi
+%    \begin{macrocode}
+\newcommand{\DefaultBaseLineSkip}{\setlength{\baselineskip}{15pt}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\DefaultHOffset}
+% 左マージンをデフォルト値に設定します．
+%    \begin{macrocode}
+\newcommand{\DefaultHOffset}{\setlength{\hoffset}{1cm}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\DefaultTextWidth}
+% 一行あたりの文字数をデフォルト値に設定します．
+%    \begin{macrocode}
+\newcommand{\DefaultTextWidth}{\setlength{\textwidth}{33zw}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{論文の情報}
+%
+% \begin{macro}{\StudentId}
+% 学生番号を設定します．
+%    \begin{macrocode}
+\newcommand{\StudentId}[1]{\global\def\@studentid{#1}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Adviser}
+% 指導教員の氏名を設定します．
+%    \begin{macrocode}
+\newcommand{\Adviser}[1]{\global\def\@adviser{#1}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Major}
+% 専攻名を設定します．
+%    \begin{macrocode}
+\newcommand{\Major}[1]{\global\def\@major{#1}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Title}
+% 論文のタイトルを設定します．
+%    \begin{macrocode}
+\newcommand{\Title}[1]{%
+  \global\def\@thetitle{#1}%
+  \title{%
+    千葉工業大学\\修士学位論文\\%
+    \vspace{8mm}%
+    \Huge\textbf{\@thetitle\\[8cm]}%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Author}
+% 論文の著者名を設定します．
+%     \begin{macrocode}
+\newcommand{\Author}[1]{%
+  \global\def\@theauthor{#1}%
+  \author{%
+    \begin{tabular}{l}%
+      所属専攻：\@major\\%
+      学生番号・氏名：{\@studentid}番　\@theauthor\\%
+      指導教員：{\@adviser}\\\\%
+    \end{tabular}%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{ページ作成}
+%
+% \begin{macro}{\MakeTitlePage}
+% 表紙ページを作成します．
+%    \begin{macrocode}
+\newcommand{\MakeTitlePage}{\maketitle\thispagestyle{empty}\newpage\DefaultBaseLineSkip}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{environment}{\Abstract}
+% 概要ページを作成します．
+%    \begin{macrocode}
+\newenvironment{Abstract}{%
+  \pagestyle{empty}%
+  \begin{center}%
+    {\Large\rmfamily\bfseries\@thetitle}%
+  \end{center}%
+  \normalsize%
+  \begin{flushright}%
+    \vspace{0.32cm}%
+    \@studentid \@theauthor\\%
+    \vspace{0.32cm}%
+    主査 \@adviser%
+    \vspace{0.32cm}%
+  \end{flushright}%
+  \small%
+}{%
+  \normalsize%
+  \newpage%
+}%
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{macro}{\TableOfContents}
+% 目次ページを作成します．
+%    \begin{macrocode}
+\newcommand{\TableOfContents}{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{既存マクロの変更}
+%
+% \begin{macro}{\section}
+% sectionコマンドをオーバーライドして，セクションごとに改ページするようにします．
+%    \begin{macrocode}
+\if@twocolumn
+\else
+\renewcommand{\section}{%
+  \newpage
+  \if@slide\clearpage\fi
+  \@startsection{section}{1}{\z@}%
+                {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+                {.5\Cvs \@plus.3\Cdp}% 後アキ
+                {\normalfont\Large\headfont\raggedright}}
+\fi
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\paragraph}
+% paragraphコマンドをオーバーライドして，行頭の■なし+行末に改行を入れるようにします．
+%    \begin{macrocode}
+\if@twocolumn
+\else
+  \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    {\z@}%
+    {\normalfont\normalsize\headfont}}
+\fi
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{その他}
+% スタイルファイルをロードした後は行送り，左マージン，一行あたりの文字
+% 数がデフォルト値にセットされます．
+%    \begin{macrocode}
+\DefaultBaseLineSkip
+\DefaultHOffset
+\DefaultTextWidth
+%    \end{macrocode}
+% \iffalse
+%</package>
+% \fi
+% \Finale

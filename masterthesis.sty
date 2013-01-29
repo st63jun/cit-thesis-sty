@@ -1,77 +1,74 @@
-%% 修士論文用スタイルファイル
-%% jsarticle専用
-%% 使い方はTemplate.texを見てくだされ
-
-%% 行送り
-\newcommand{\DefaultBaseLineSkip}{\setlength{\baselineskip}{15pt}}
-%% 左マージン
-\newcommand{\DefaultHOffset}{\setlength{\hoffset}{1cm}}
-%% 一行あたりの文字数
-\newcommand{\DefaultTextWidth}{\setlength{\textwidth}{33zw}}
-
-\DefaultBaseLineSkip
-\DefaultHOffset
-\DefaultTextWidth
-
-%% 学生番号
-\newcommand{\StudentId}[1]{\global\def\@studentid{#1}}
-%% 指導教員
-\newcommand{\Adviser}[1]{\global\def\@adviser{#1}}
-%% 専攻
-\newcommand{\Major}[1]{\global\def\@major{#1}}
-
-%% タイトル
+%%
+%% This is file `masterthesis.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% masterthesis.dtx  (with options: `package')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from masterthesis.sty.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file masterthesis.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesPackage{masterthesis}
+  [2013/01/29 v1.0 Style file for thesis]
+\newcommand{\Front}{\pagenumbering{roman}}%
+\newcommand{\Main}{\pagenumbering{arabic}}%
+\newcommand{\DefaultBaseLineSkip}{\setlength{\baselineskip}{15pt}}%
+\newcommand{\DefaultHOffset}{\setlength{\hoffset}{1cm}}%
+\newcommand{\DefaultTextWidth}{\setlength{\textwidth}{33zw}}%
+\newcommand{\StudentId}[1]{\global\def\@studentid{#1}}%
+\newcommand{\Adviser}[1]{\global\def\@adviser{#1}}%
+\newcommand{\Major}[1]{\global\def\@major{#1}}%
 \newcommand{\Title}[1]{%
-  \global\def\@thetitle{#1}
-  \title{
-    千葉工業大学\\修士学位論文\\
-    \vspace{8mm}
-    \Huge\textbf{\@thetitle\\[8cm]}
+  \global\def\@thetitle{#1}%
+  \title{%
+    千葉工業大学\\修士学位論文\\%
+    \vspace{8mm}%
+    \Huge\textbf{\@thetitle\\[8cm]}%
   }%
 }%
-
-%% 著者
-\newcommand{\Author}[1]{
-  \global\def\@theauthor{#1}
+\newcommand{\Author}[1]{%
+  \global\def\@theauthor{#1}%
   \author{%
-    \begin{tabular}{l}
-      所属専攻：\@major\\
-      学生番号・氏名：{\@studentid}番　\@theauthor\\
-      指導教員：{\@adviser}\\\\
-    \end{tabular}
+    \begin{tabular}{l}%
+      所属専攻：\@major\\%
+      学生番号・氏名：{\@studentid}番　\@theauthor\\%
+      指導教員：{\@adviser}\\\\%
+    \end{tabular}%
   }%
 }%
-
-%% 表紙，概要，目次のために，ページ番号をローマ数字にする
-\newcommand{\Front}{\pagenumbering{roman}}
-%% 本文のために，ページ番号をアラビア数字にする
-\newcommand{\Main}{\pagenumbering{arabic}}
-
-%% 表紙作成
-\newcommand{\MakeTitlePage}{\maketitle\thispagestyle{empty}\newpage\DefaultBaseLineSkip}
-%% 概要
-\newenvironment{Abstract}{
-  \pagestyle{empty}
-  \begin{center}
-    {\Large\rmfamily\bfseries\@thetitle}
-  \end{center}
-  \normalsize
-  \begin{flushright}
-    \vspace{0.32cm}
-    \@studentid \@theauthor\\
-    \vspace{0.32cm}
-    主査 \@adviser
-    \vspace{0.32cm}
-  \end{flushright}
-  \small
-}{
-  \normalsize
-  \newpage
-}
-%% 目次
+\newcommand{\MakeTitlePage}{\maketitle\thispagestyle{empty}\newpage\DefaultBaseLineSkip}%
+\newenvironment{Abstract}{%
+  \pagestyle{empty}%
+  \begin{center}%
+    {\Large\rmfamily\bfseries\@thetitle}%
+  \end{center}%
+  \normalsize%
+  \begin{flushright}%
+    \vspace{0.32cm}%
+    \@studentid \@theauthor\\%
+    \vspace{0.32cm}%
+    主査 \@adviser%
+    \vspace{0.32cm}%
+  \end{flushright}%
+  \small%
+}{%
+  \normalsize%
+  \newpage%
+}%
 \newcommand{\TableOfContents}{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
-
-%% セクションごとに改ページするようにする
 \if@twocolumn
 \else
 \renewcommand{\section}{%
@@ -82,8 +79,6 @@
                 {.5\Cvs \@plus.3\Cdp}% 後アキ
                 {\normalfont\Large\headfont\raggedright}}
 \fi
-
-%% paragraph の■を取る
 \if@twocolumn
 \else
   \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
@@ -91,3 +86,9 @@
     {\z@}%
     {\normalfont\normalsize\headfont}}
 \fi
+\DefaultBaseLineSkip
+\DefaultHOffset
+\DefaultTextWidth
+\endinput
+%%
+%% End of file `masterthesis.sty'.
