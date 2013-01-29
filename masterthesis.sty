@@ -9,8 +9,6 @@
 %% 一行あたりの文字数
 \newcommand{\DefaultTextWidth}{\setlength{\textwidth}{33zw}}
 
-%% \subsubsectionも目次に含める
-
 \DefaultBaseLineSkip
 \DefaultHOffset
 \DefaultTextWidth
@@ -24,19 +22,21 @@
 
 %% タイトル
 \newcommand{\Title}[1]{%
+  \global\def\@thetitle{#1}
   \title{
     千葉工業大学\\修士学位論文\\
     \vspace{8mm}
-    \Huge\textbf{#1\\[8cm]}
+    \Huge\textbf{\@thetitle\\[8cm]}
   }%
 }%
 
 %% 著者
 \newcommand{\Author}[1]{
+  \global\def\@theauthor{#1}
   \author{%
     \begin{tabular}{l}
       所属専攻：\@major\\
-      学生番号・氏名：{\@studentid}番　#1\\
+      学生番号・氏名：{\@studentid}番　\@theauthor\\
       指導教員：{\@adviser}\\\\
     \end{tabular}
   }%
@@ -50,10 +50,24 @@
 %% 表紙作成
 \newcommand{\MakeTitlePage}{\maketitle\thispagestyle{empty}\newpage\DefaultBaseLineSkip}
 %% 概要
-\newenvironment{Abstract}{\setcounter{page}{1}\section*{概要}}{\newpage}
+\newenvironment{Abstract}{
+  \pagestyle{empty}
+  \begin{center}
+    {\LARGE\rmfamily\bfseries\@thetitle}
+  \end{center}
+  \begin{flushright}
+    \large
+    \vspace{0.32cm}
+    \@studentid \@theauthor\\
+    \vspace{0.32cm}
+    主査 \@adviser
+    \vspace{0.32cm}
+  \end{flushright}
+}{
+  \newpage
+}
 %% 目次
-\newcommand{\TableOfContents}{\setcounter{tocdepth}{3}\tableofcontents\newpage}
-
+\newcommand{\TableOfContents}{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
 
 %% セクションごとに改ページするようにする
 \if@twocolumn
