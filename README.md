@@ -1,1 +1,1 @@
-See masterthesis.pdf
+See [http://st63jun.github.com/cit-thesis-sty](http://st63jun.github.com/cit-thesis-sty)
