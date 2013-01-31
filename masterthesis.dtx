@@ -1,4 +1,4 @@
-% \CheckSum{172}
+% \CheckSum{160}
 % \iffalse
 %<package>\NeedsTeXFormat{pLaTeX2e}
 %<package>\ProvidesPackage{masterthesis}
@@ -167,7 +167,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\Achievements}
+% \begin{environment}{\Achievements}
 % 研究業績のページを作成します．
 %    \begin{macrocode}
 \newenvironment{Achievements}%
@@ -180,14 +180,14 @@
   \end{thebibliography}%
   \renewcommand{\refname}{\@temp}
 }
-%   \end{macrocode}
-% \end{macro}
+%    \end{macrocode}
+% \end{environment}
 %
 % \begin{macro}{\AchieveItem}
-% 研究業績の項目を作成します．\textbackslashbibitemのエイリアスです．
+% 研究業績の項目を作成します．\textbackslash bibitemのエイリアスです．
 %    \begin{macrocode}
 \newcommand{\AchieveItem}[1]{\bibitem{#1}}
-%   \end{macrocode}
+%    \end{macrocode}
 % \end{macro}
 %
 % \subsection{既存マクロの変更}
