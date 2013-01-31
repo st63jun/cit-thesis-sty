@@ -69,6 +69,17 @@
   \newpage%
 }%
 \newcommand{\TableOfContents}{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
+\newenvironment{Achievements}%
+{%
+  \let\@temp\refname%
+  \renewcommand{\refname}{研究業績}%
+  \begin{thebibliography}{99}%
+}%
+{%
+  \end{thebibliography}%
+  \renewcommand{\refname}{\@temp}
+}
+\newcommand{\AchieveItem}[1]{\bibitem{#1}}
 \if@twocolumn
 \else
 \renewcommand{\section}{%

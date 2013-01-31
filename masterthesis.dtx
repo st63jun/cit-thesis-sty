@@ -1,4 +1,4 @@
-% \CheckSum{146}
+% \CheckSum{172}
 % \iffalse
 %<package>\NeedsTeXFormat{pLaTeX2e}
 %<package>\ProvidesPackage{masterthesis}
@@ -165,6 +165,29 @@
 %    \begin{macrocode}
 \newcommand{\TableOfContents}{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
 %    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Achievements}
+% 研究業績のページを作成します．
+%    \begin{macrocode}
+\newenvironment{Achievements}%
+{%
+  \let\@temp\refname%
+  \renewcommand{\refname}{研究業績}%
+  \begin{thebibliography}{99}%
+}%
+{%
+  \end{thebibliography}%
+  \renewcommand{\refname}{\@temp}
+}
+%   \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\AchieveItem}
+% 研究業績の項目を作成します．\textbackslashbibitemのエイリアスです．
+%    \begin{macrocode}
+\newcommand{\AchieveItem}[1]{\bibitem{#1}}
+%   \end{macrocode}
 % \end{macro}
 %
 % \subsection{既存マクロの変更}
