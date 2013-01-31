@@ -132,7 +132,8 @@
 % \begin{macro}{\MakeTitlePage}
 % 表紙ページを作成します．
 %    \begin{macrocode}
-\newcommand{\MakeTitlePage}{\maketitle\thispagestyle{empty}\newpage\DefaultBaseLineSkip}%
+\newcommand{\MakeTitlePage}%
+{\maketitle\thispagestyle{empty}\newpage\DefaultBaseLineSkip}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -163,7 +164,8 @@
 % \begin{macro}{\TableOfContents}
 % 目次ページを作成します．
 %    \begin{macrocode}
-\newcommand{\TableOfContents}{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
+\newcommand{\TableOfContents}%
+{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
 %    \end{macrocode}
 % \end{macro}
 %

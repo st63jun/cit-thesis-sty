@@ -49,7 +49,8 @@
     \end{tabular}%
   }%
 }%
-\newcommand{\MakeTitlePage}{\maketitle\thispagestyle{empty}\newpage\DefaultBaseLineSkip}%
+\newcommand{\MakeTitlePage}%
+{\maketitle\thispagestyle{empty}\newpage\DefaultBaseLineSkip}%
 \newenvironment{Abstract}{%
   \pagestyle{empty}%
   \begin{center}%
@@ -68,7 +69,8 @@
   \normalsize%
   \newpage%
 }%
-\newcommand{\TableOfContents}{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
+\newcommand{\TableOfContents}%
+{\setcounter{page}{1}\setcounter{tocdepth}{3}\tableofcontents\newpage}
 \newenvironment{Achievements}%
 {%
   \let\@temp\refname%
