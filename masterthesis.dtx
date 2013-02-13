@@ -1,4 +1,4 @@
-% \CheckSum{160}
+% \CheckSum{161}
 % \iffalse
 %<package>\NeedsTeXFormat{pLaTeX2e}
 %<package>\ProvidesPackage{masterthesis}
@@ -210,14 +210,14 @@
 % \end{macro}
 %
 % \begin{macro}{\paragraph}
-% paragraphコマンドをオーバーライドして，行頭の■なし+行末に改行を入れるようにします．
+% paragraphコマンドをオーバーライドして，標準フォント+行頭に{\textbullet}+行末に改行を入れるようにします．
 %    \begin{macrocode}
 \if@twocolumn
 \else
   \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
     {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
     {\z@}%
-    {\normalfont\normalsize\headfont}}
+    {\normalfont\normalsize\textbullet\ }}
 \fi
 %    \end{macrocode}
 % \end{macro}
