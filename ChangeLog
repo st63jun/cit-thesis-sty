@@ -1,6 +1,7 @@
 2013-02-13  Jun SAITO  <jsaito@jsaito-air.local>
 
-	* \paragraphマクロの書式を「・ほげほげ」に変更
+	* \subsubsection*と見分けがつかないので\paragraphの書式を
+	「・ほげほげ」に変更．
 
 2013-01-31  Jun SAITO  <jsaito@xopowo.info>
 
